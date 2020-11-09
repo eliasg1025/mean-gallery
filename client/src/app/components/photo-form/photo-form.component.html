@@ -1,1 +1,24 @@
-<p>photo-form works!</p>
+<div class="col-lg-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            Sube una foto
+        </div>
+        <div class="card-body">
+            <form (submit)="uploadPhoto(title, description)">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Titulo" required #title>
+                </div>
+                <div class="form-group">
+                    <textarea rows="2" placeholder="Descripcion" class="form-control" required #description></textarea>
+                </div>
+                
+                <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+                <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" alt="No Image" (click)="photoInput.click()">
+
+                <button class="btn btn-primary btn-block">
+                    Subir
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
